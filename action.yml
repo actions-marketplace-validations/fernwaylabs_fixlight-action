@@ -1,0 +1,24 @@
+name: 'Fixlight Accessibility Scan'
+description: 'Scan a public page for accessibility problems on every push: plain-English findings, how to fix each, and which ones the free Fixlight WordPress plugin fixes on its own.'
+author: 'Fernway Labs'
+branding: { icon: 'eye', color: 'blue' }
+inputs:
+  url:
+    description: 'Public page URL to scan (a deploy preview or the live site). Several URLs: one per line.'
+    required: true
+  api_key:
+    description: 'Fixlight scan API key (store it as a repository secret). Get one at https://fixlight.fernwaylabs.com/api-key/'
+    required: true
+  fail_on_serious:
+    description: 'Fail the job when serious or critical problems exceed max_serious.'
+    default: 'false'
+  max_serious:
+    description: 'Serious problems allowed before the job fails (with fail_on_serious).'
+    default: '0'
+outputs:
+  problems: { description: 'Problems found (sum over URLs)' }
+  serious: { description: 'Serious or critical problems (sum over URLs)' }
+  fixed_by_free_plugin: { description: 'Problems the free Fixlight plugin fixes by itself (sum over URLs)' }
+runs:
+  using: 'node24'
+  main: 'index.js'
