@@ -1,5 +1,5 @@
 name: 'Fixlight Accessibility Scan'
-description: 'Scan a public page for accessibility problems on every push: plain-English findings, how to fix each, and which ones the free Fixlight WordPress plugin fixes on its own.'
+description: 'Find accessibility problems on every push, with plain-English fixes and what the free Fixlight WordPress plugin fixes.'
 author: 'Fernway Labs'
 branding: { icon: 'eye', color: 'blue' }
 inputs:
